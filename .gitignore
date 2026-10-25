@@ -1,0 +1,34 @@
+# 本地依赖、虚拟环境与 Python 缓存
+node_modules/
+.venv/
+.venv-*/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# 本地配置与凭据
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.p12
+*.pfx
+
+# HyperFrames 的本地状态、预览与缓存
+.hyperframes/
+.thumbnails/
+.waveform-cache/
+
+# 可重新生成的成片与画面检查结果；正式素材保留在 assets/
+renders/
+snapshots/
+
+# ai-code-story 的临时音频方案、测试样本和命令输出
+/videos/ai-code-story/.media/
+/videos/ai-code-story/assets/voice_sapi/
+/videos/ai-code-story/audio_meta_sapi.json
+/videos/ai-code-story/sample-*.wav
+/videos/ai-code-story/*-output.txt
