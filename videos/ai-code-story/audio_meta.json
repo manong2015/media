@@ -1,0 +1,118 @@
+{
+  "provider": "kokoro-onnx",
+  "voice": "zf_xiaobei",
+  "lang": "zh",
+  "speed": 1.08,
+  "voices": [
+    {
+      "id": "shot01",
+      "path": "assets/voice/shot01.wav",
+      "duration_s": 6.443
+    },
+    {
+      "id": "shot02",
+      "path": "assets/voice/shot02.wav",
+      "duration_s": 7.298
+    },
+    {
+      "id": "shot03",
+      "path": "assets/voice/shot03.wav",
+      "duration_s": 9.28
+    },
+    {
+      "id": "shot04",
+      "path": "assets/voice/shot04.wav",
+      "duration_s": 6.741
+    },
+    {
+      "id": "shot05",
+      "path": "assets/voice/shot05.wav",
+      "duration_s": 9.749
+    },
+    {
+      "id": "shot06",
+      "path": "assets/voice/shot06.wav",
+      "duration_s": 9.563
+    },
+    {
+      "id": "shot07",
+      "path": "assets/voice/shot07.wav",
+      "duration_s": 10.197
+    },
+    {
+      "id": "shot08",
+      "path": "assets/voice/shot08.wav",
+      "duration_s": 8.256
+    },
+    {
+      "id": "shot09",
+      "path": "assets/voice/shot09.wav",
+      "duration_s": 10.506
+    },
+    {
+      "id": "shot10",
+      "path": "assets/voice/shot10.wav",
+      "duration_s": 10.837
+    },
+    {
+      "id": "shot11",
+      "path": "assets/voice/shot11.wav",
+      "duration_s": 10.272
+    },
+    {
+      "id": "shot12",
+      "path": "assets/voice/shot12.wav",
+      "duration_s": 10.16
+    },
+    {
+      "id": "shot13",
+      "path": "assets/voice/shot13.wav",
+      "duration_s": 7.36
+    },
+    {
+      "id": "shot14",
+      "path": "assets/voice/shot14.wav",
+      "duration_s": 9.408
+    },
+    {
+      "id": "shot15",
+      "path": "assets/voice/shot15.wav",
+      "duration_s": 9.835
+    },
+    {
+      "id": "shot16",
+      "path": "assets/voice/shot16.wav",
+      "duration_s": 10.904
+    },
+    {
+      "id": "shot17",
+      "path": "assets/voice/shot17.wav",
+      "duration_s": 10.88
+    },
+    {
+      "id": "shot18",
+      "path": "assets/voice/shot18.wav",
+      "duration_s": 9.28
+    },
+    {
+      "id": "shot19",
+      "path": "assets/voice/shot19.wav",
+      "duration_s": 11.209
+    },
+    {
+      "id": "shot20",
+      "path": "assets/voice/shot20.wav",
+      "duration_s": 12.87
+    },
+    {
+      "id": "shot21",
+      "path": "assets/voice/shot21.wav",
+      "duration_s": 10.526
+    },
+    {
+      "id": "shot22",
+      "path": "assets/voice/shot22.wav",
+      "duration_s": 11.923
+    }
+  ]
+}

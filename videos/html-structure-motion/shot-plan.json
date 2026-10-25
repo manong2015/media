@@ -1,0 +1,263 @@
+{
+  "category": "kinetic-type",
+  "duration_s": 5,
+  "fps": 30,
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "style": "深色代码编辑器风格；高对比代码色、清晰的标签层级与克制的技术感。单镜头内以标签括号的组装为主导动势，在中段只改变一次版式尺度，让文字从术语解释转化为网页骨架。",
+  "palette": [
+    "#0B1020",
+    "#F8FAFC",
+    "#FF6B6B",
+    "#334155"
+  ],
+  "font": "Noto Sans JP",
+  "beats": [
+    0,
+    0.4,
+    1.2,
+    1.6,
+    2.4,
+    2.8,
+    3.2,
+    4
+  ],
+  "export": "mp4",
+  "asset_needs": [],
+  "block": "caption-kinetic-slam",
+  "customize": {
+    "primary_block": {
+      "id": "caption-kinetic-slam",
+      "install": "hyperframes add caption-kinetic-slam",
+      "role": "承载三段文字的节拍式入场、强调词和最终锁定；保留单一 0.4 秒脉冲网格，但将默认英文重字替换为中文排版。"
+    },
+    "supporting_blocks": [
+      {
+        "id": "flowchart",
+        "install": "hyperframes add flowchart",
+        "role": "复用 SVG 节点和连接线结构，定制为最终的 HTML 标签树；只借用节点与连线机制，不引入流程图鼠标或便签外观。"
+      }
+    ],
+    "text": [
+      "HTML 是什么？",
+      "用 <标签> 组织内容",
+      "构建网页结构骨架"
+    ],
+    "emphasis_words": [
+      "HTML",
+      "<标签>",
+      "结构骨架"
+    ],
+    "palette_roles": {
+      "background": "#0B1020",
+      "text": "#F8FAFC",
+      "accent": "#FF6B6B",
+      "muted_grid_and_inactive_lines": "#334155"
+    },
+    "typography": {
+      "display": "Noto Sans JP 700",
+      "code_tokens": "JetBrains Mono 700",
+      "hero_size_px": 176,
+      "support_size_px": 76,
+      "final_label_size_px": 92,
+      "rule": "全片只用珊瑚红作为强调色；尖括号和 ASCII 标签使用等宽体，中文解释使用 Noto Sans JP。"
+    },
+    "layout": {
+      "safe_area_px": {
+        "left": 160,
+        "right": 160,
+        "top": 96,
+        "bottom": 96
+      },
+      "background": "全片固定深蓝黑底，叠加低对比 64px 网格；网格仅作空间参照，不参与主动画。",
+      "hook": {
+        "anchor": {
+          "x": 960,
+          "y": 500
+        },
+        "composition": "HTML 为 176px 居中主角；“是什么？”以 76px 紧贴其右下侧，视觉重量明显次一级。"
+      },
+      "tags": {
+        "anchor": {
+          "x": 960,
+          "y": 500
+        },
+        "composition": "“<标签>”保持画面中心并放入细描边代码胶囊，“用”和“组织内容”分居左右；左右尖括号是唯一的合拢动作。"
+      },
+      "structure": {
+        "root": {
+          "label": "<html>",
+          "x": 960,
+          "y": 300
+        },
+        "children": [
+          {
+            "label": "<head>",
+            "x": 650,
+            "y": 560
+          },
+          {
+            "label": "<body>",
+            "x": 1270,
+            "y": 560
+          }
+        ],
+        "connectors": [
+          "<html> → <head>",
+          "<html> → <body>"
+        ],
+        "final_caption": {
+          "text": "构建网页结构骨架",
+          "x": 960,
+          "y": 820,
+          "emphasis": "结构骨架"
+        }
+      }
+    },
+    "motion_rules": [
+      {
+        "rule": "depth-of-field-blur",
+        "window": [
+          0,
+          0.48
+        ],
+        "use": "HTML 从 scale 1.35、blur 16px、opacity 0 聚焦到清晰原位；焦点元素始终保持最高层级，背景网格不做大面积模糊。"
+      },
+      {
+        "rule": "kinetic-beat-slam",
+        "window": [
+          0,
+          2.8
+        ],
+        "use": "以 0.4 秒为统一脉冲；三段内容分别使用焦点前推、左右 snap、中心锚定三种不同入口，攻击时长 0.32–0.48 秒。"
+      },
+      {
+        "rule": "center-outward-expansion",
+        "window": [
+          2.8,
+          3.56
+        ],
+        "use": "中心的 <标签> 匹配切换为 <html> 根节点，<head>/<body> 从同一中心向左右下方展开；使用 authored target x/y 与 power3.out，不计算运行时布局。"
+      },
+      {
+        "rule": "svg-path-draw",
+        "window": [
+          3.12,
+          3.86
+        ],
+        "use": "两条根到子节点的连接线在节点展开途中开始绘制；stroke-dasharray/dashoffset 使用 getTotalLength()，第二条线延迟 0.12 秒，端点必须落在真实节点边缘。"
+      }
+    ],
+    "pacing": {
+      "pulse_s": 0.4,
+      "windows": [
+        {
+          "start": 0,
+          "end": 0.48,
+          "action": "HTML 聚焦并前推，首个可读状态在 0.3 秒内落定。"
+        },
+        {
+          "start": 0.48,
+          "end": 1.2,
+          "action": "“是什么？”快速出现，留出约 0.3 秒完整阅读。"
+        },
+        {
+          "start": 1.2,
+          "end": 1.68,
+          "action": "左右尖括号合拢成 <标签>，形成全片的主导动作。"
+        },
+        {
+          "start": 1.68,
+          "end": 2.4,
+          "action": "“用 / 组织内容”按左右方向 snap 到位。"
+        },
+        {
+          "start": 2.4,
+          "end": 2.8,
+          "action": "<标签> 做一次 1.08 倍脉冲，其他文字淡出，为结构展开蓄势。"
+        },
+        {
+          "start": 2.8,
+          "end": 3.86,
+          "action": "标签锚点变为 <html>，子节点外扩，连接线重叠绘制完成。"
+        },
+        {
+          "start": 3.86,
+          "end": 4.2,
+          "action": "最终说明从下方 36px 上移锁定，“结构骨架”切换为强调色。"
+        },
+        {
+          "start": 4.2,
+          "end": 5,
+          "action": "完整 HTML 标签树和结论稳定停留，只有根节点 1.01 倍的有限呼吸。"
+        }
+      ]
+    },
+    "exit": {
+      "type": "end-on-hold",
+      "window": [
+        4.2,
+        5
+      ],
+      "instruction": "不做整体淡出；保持最终结构和结论清晰到 5.0 秒，在稳定帧直接结束，便于观众读完并形成记忆。"
+    }
+  },
+  "content": {
+    "scenes": [
+      {
+        "id": "hook-html",
+        "phase": "Hook",
+        "start": 0,
+        "end": 1.2,
+        "text": "HTML 是什么？",
+        "emphasis_words": [
+          "HTML"
+        ],
+        "emotion": "好奇、直接",
+        "motion": "depth-of-field-blur + kinetic-beat-slam：HTML 由 scale 1.35 / blur 16px 聚焦到原位；“是什么？”从右下侧短距 rise-snap 入场，0.3 秒内建立主题。",
+        "beats": [
+          0,
+          0.4,
+          0.8
+        ]
+      },
+      {
+        "id": "build-tags",
+        "phase": "Build → Punch",
+        "start": 1.2,
+        "end": 2.8,
+        "text": "用 <标签> 组织内容",
+        "emphasis_words": [
+          "<标签>"
+        ],
+        "emotion": "清晰、机械",
+        "motion": "kinetic-beat-slam：左右尖括号以对称 side-snap 合拢包住“标签”；“用 / 组织内容”从相反方向短距落位。2.4 秒时 <标签> 做一次 scale_pulse 并保留为下一段的固定锚点。",
+        "beats": [
+          1.2,
+          1.6,
+          2.4
+        ]
+      },
+      {
+        "id": "resolve-structure",
+        "phase": "Resolve",
+        "start": 2.8,
+        "end": 5,
+        "text": "构建网页结构骨架",
+        "emphasis_words": [
+          "结构骨架"
+        ],
+        "emotion": "笃定、完成",
+        "motion": "center-outward-expansion + svg-path-draw：<标签> 在同一屏幕锚点匹配为 <html>，<head>/<body> 向左右下方展开；连接线随节点到达重叠绘制，结论从下方上移锁定。4.2–5.0 秒 end-on-hold，强调“结构骨架”。",
+        "beats": [
+          2.8,
+          3.2,
+          4
+        ]
+      }
+    ]
+  }
+}

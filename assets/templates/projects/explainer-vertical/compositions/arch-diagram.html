@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>架构色块 + 牛同学情绪位</title>
+  </head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="../styles/explainer.css" />
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          font-family: var(--font-sans);
+          color: var(--ink);
+        }
+        #ad-diagram {
+          position: absolute;
+          left: var(--safe-x);
+          width: 864px;
+          top: 260px;
+        }
+      </style>
+
+      <div data-hf-id="hf-w0sj" id="root" data-composition-id="arch-diagram" data-width="1080" data-height="1920">
+        <div data-hf-id="hf-vmp6" id="ad-diagram">
+          <div data-hf-id="hf-1ons" id="ad-box" class="ex-container">
+            <div data-hf-id="hf-ly2a" class="ex-container-label">你的电脑</div>
+            <div data-hf-id="hf-f009" id="ad-ai" class="ex-block ex-block-primary">
+              <svg data-hf-id="hf-077y" class="ex-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect data-hf-id="hf-gao1" x="4" y="7" width="16" height="12" rx="3" /><path data-hf-id="hf-liq3" d="M12 3v4M9 12h.01M15 12h.01M9 16h6" /></svg>
+              <span data-hf-id="hf-yttl">AI 助手</span>
+            </div>
+            <div data-hf-id="hf-g3n7" id="ad-w1" class="ex-wire"><div data-hf-id="hf-fvpx" class="ex-wire-dot"></div></div>
+            <div data-hf-id="hf-gkvr" id="ad-mcp" class="ex-block ex-block-focus">
+              <svg data-hf-id="hf-ac6t" class="ex-icon" viewBox="0 0 24 24" fill="none" stroke="#1677e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-wrfa" d="M9 7V3M15 7V3M7 7h10v4a5 5 0 0 1-10 0V7zM12 16v5" /></svg>
+              <span data-hf-id="hf-7ow8">MCP 协议</span>
+            </div>
+            <div data-hf-id="hf-7frc" id="ad-w2" class="ex-wire"><div data-hf-id="hf-b1c9" class="ex-wire-dot"></div></div>
+            <div data-hf-id="hf-39a2" id="ad-row" class="ex-row">
+              <div data-hf-id="hf-4adi" class="ex-block ex-block-soft">文件</div>
+              <div data-hf-id="hf-lmok" class="ex-block ex-block-soft">日历</div>
+              <div data-hf-id="hf-jhg1" class="ex-block ex-block-soft">网页</div>
+            </div>
+          </div>
+        </div>
+        <div data-hf-id="hf-0v9e" id="ad-niu" class="ex-niu"><img data-hf-id="hf-u18t" src="../assets/images/niu-classmate-front-cutout.png" alt="牛同学" /></div>
+        <div data-hf-id="hf-ktu4" id="ad-bubble" class="ex-bubble">这又是啥？</div>
+        <div data-hf-id="hf-nnc6" class="ex-sub"><div data-hf-id="hf-ohj4" id="ad-sub" class="ex-sub-box">MCP 就是 AI 的<em data-hf-id="hf-h4nc">万能插座</em></div></div>
+      </div>
+
+      <script>
+        const tl = gsap.timeline({ paused: true });
+        const IN = { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" };
+        tl.fromTo("#ad-sub", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.3);
+        tl.fromTo("#ad-box", { opacity: 0, y: 40 }, { ...IN }, 0.1);
+        tl.fromTo("#ad-ai", { opacity: 0, y: 40 }, { ...IN }, 0.35);
+        tl.fromTo("#ad-niu", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.6)" }, 0.5);
+        tl.fromTo("#ad-w1", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.25 }, 0.65);
+        tl.fromTo("#ad-mcp", { opacity: 0, y: 40 }, { ...IN }, 0.8);
+        tl.fromTo("#ad-bubble", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, 0.9);
+        tl.fromTo("#ad-w2", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.25 }, 1.1);
+        tl.fromTo("#ad-row", { opacity: 0, y: 40 }, { ...IN }, 1.25);
+        tl.fromTo("#ad-diagram .ex-wire-dot", { y: 0 }, { y: 52, duration: 0.6, ease: "none", repeat: 4 }, 1.4);
+        window.__timelines["arch-diagram"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

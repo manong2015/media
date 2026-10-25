@@ -1,0 +1,156 @@
+/* 科普讲解竖屏组件：共享色板、字体与组件样式
+   规范来源：brand/explainer-visual-style.md */
+
+@font-face {
+  font-family: "Noto Sans SC";
+  src: url("../assets/fonts/NotoSansSC-VF.ttf") format("truetype");
+  font-weight: 100 900;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../assets/fonts/JetBrainsMono-VF.ttf") format("truetype");
+  font-weight: 100 800;
+}
+
+:root {
+  --bg: #eef1f5;
+  --bg-grid: #dde3eb;
+  --surface: #ffffff;
+  --ink: #0b1b3f;
+  --primary: #1f4fa8;
+  --primary-soft: #cfddf3;
+  --accent: #1677e6;
+  --accent-glow: #5cd3f5;
+  --muted: #6b7a99;
+  --alert: #ff7a2f;
+  --safe-x: 72px;
+  --safe-right: 144px;
+  --font-sans: "Noto Sans SC", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* 字幕条：y≈1360，单行 ≤16 字，关键词用 <em> */
+.ex-sub {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 1360px;
+  display: flex;
+  justify-content: center;
+}
+.ex-sub-box {
+  background: rgba(11, 27, 63, 0.78);
+  border-radius: 12px;
+  padding: 14px 24px;
+  font-family: var(--font-sans);
+  font-size: 56px;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+}
+.ex-sub-box em {
+  font-style: normal;
+  color: var(--accent-glow);
+}
+
+/* 架构色块 */
+.ex-container {
+  width: 100%;
+  border: 4px solid var(--primary);
+  border-radius: 24px;
+  background: var(--surface);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ex-container-label {
+  align-self: flex-start;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 24px;
+}
+.ex-block {
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-family: var(--font-sans);
+  font-size: 50px;
+  font-weight: 700;
+  padding: 32px 40px;
+}
+.ex-block-primary {
+  background: var(--primary);
+  color: #ffffff;
+  width: 100%;
+}
+.ex-block-focus {
+  background: var(--surface);
+  color: var(--ink);
+  width: 100%;
+  border: 6px solid var(--accent-glow);
+  box-shadow: 0 0 0 10px rgba(92, 211, 245, 0.18);
+}
+.ex-block-soft {
+  background: var(--primary-soft);
+  color: var(--ink);
+  flex: 1;
+}
+.ex-row {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+}
+.ex-icon {
+  width: 56px;
+  height: 56px;
+  flex: none;
+}
+.ex-wire {
+  width: 6px;
+  height: 64px;
+  border-radius: 3px;
+  background: var(--accent);
+  position: relative;
+}
+.ex-wire-dot {
+  position: absolute;
+  left: -3px;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  background: var(--accent-glow);
+}
+
+/* 牛同学情绪位：左下，高度 ≤ 画面 35% */
+.ex-niu {
+  position: absolute;
+  left: var(--safe-x);
+  top: 990px;
+  width: 300px;
+  height: 350px;
+}
+.ex-niu img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.ex-bubble {
+  position: absolute;
+  left: 400px;
+  top: 1040px;
+  width: 420px;
+  background: var(--surface);
+  border: 4px solid var(--ink);
+  border-radius: 28px;
+  padding: 28px 32px;
+  font-family: var(--font-sans);
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--ink);
+  text-align: center;
+}

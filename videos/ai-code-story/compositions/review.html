@@ -1,0 +1,93 @@
+<template>
+<style>
+@font-face{font-family:YaHei;src:local('Microsoft YaHei');font-weight:400}
+@font-face{font-family:YaHei;src:local('Microsoft YaHei Bold');font-weight:700}
+*{box-sizing:border-box}
+#root{position:absolute;inset:0;overflow:hidden;font-family:YaHei,sans-serif;color:#151515}
+.shot{position:absolute;inset:0;background:#F5F5F2;overflow:hidden}
+.shot:nth-of-type(even){background:#ECEDEA}
+.shot:after{content:'';position:absolute;left:0;right:0;top:1390px;height:530px;background:#E4E6E2;border-top:2px solid #D0D3CE}
+.shot:before{content:'';position:absolute;right:0;bottom:0;width:210px;height:75px;background:#F15A3C;z-index:1}
+.topline{position:absolute;left:82px;top:205px;font-size:31px;font-weight:700;letter-spacing:.06em;color:#5E615D}
+.topline:before{content:'';display:inline-block;width:23px;height:23px;margin-right:16px;background:#F15A3C;vertical-align:0}
+.headline{position:absolute;left:78px;top:325px;width:920px;font-size:82px;font-weight:700;letter-spacing:-.045em;line-height:1.18}
+.accentline{position:absolute;left:82px;top:510px;width:915px;font-size:70px;font-weight:700;color:#D94125;line-height:1.18}
+.visual{position:absolute;left:82px;top:650px;width:916px;height:465px;overflow:hidden}
+.subline{position:absolute;left:82px;top:1125px;width:916px;font-size:38px;color:#4B4E4B;line-height:1.3}
+.big-number{font-family:YaHei,sans-serif;font-weight:700;font-size:330px;line-height:1;color:#151515;letter-spacing:-.08em}
+.big-number span{font-size:180px;color:#F15A3C}
+.question{font-size:84px;font-weight:700;color:#D94125}
+.stamp{position:absolute;border:6px solid #151515;border-radius:20px;padding:16px 50px;font-weight:700;transform:rotate(-5deg)}
+.stamp.yes{font-size:170px;left:70px;top:20px}
+.stamp.later{font-size:70px;right:35px;top:255px;border-color:#F15A3C;color:#D94125;transform:rotate(5deg)}
+.flow-step,.stack-card,.task,.debate-card,.takeaway{width:100%;background:#FFF;border:2px solid #151515;border-radius:13px;padding:24px 28px;font-size:47px;font-weight:700;margin-bottom:17px}
+.flow-step.warn,.debate-card.selected,.task.active,.stack-card.must{border-color:#D94125;background:#FFF1EB}
+.flow-arrow{font-size:41px;text-align:center;height:48px}
+.debate-card{height:170px}
+.debate-card span{display:block;font-size:37px;font-weight:400;margin-top:12px}
+.choice-old,.choice-new{display:inline-block;padding:26px 35px;border:3px solid #151515;font-size:60px;font-weight:700;margin-top:80px}
+.choice-new{background:#F15A3C;color:#fff;border-color:#F15A3C}
+.choice-arrow{display:inline-block;font-size:75px;padding:0 15px}
+.micro{font-size:37px;color:#555;margin-top:28px}
+.week{display:flex;gap:8px;margin:28px 0 42px}
+.week span{display:grid;place-items:center;width:116px;height:100px;background:#151515;color:#fff;font-size:48px;font-weight:700}
+.week span:last-child{background:#F15A3C}
+.chat{border-radius:20px;padding:22px 28px;font-size:42px;margin-bottom:20px;max-width:790px}
+.chat.user{background:#151515;color:#fff;margin-left:105px}
+.chat.ai{background:#fff;border:2px solid #151515}
+.chat.result{background:#FFF1EB;border:2px solid #D94125;color:#B5341D}
+.mock{position:relative;width:590px;height:405px;margin:4px auto;background:#fff;border:5px solid #151515;border-radius:28px;padding:30px}
+.mock i{display:block;width:43%;height:33px;background:#151515;border-radius:5px}
+.mock b{display:block;width:100%;height:135px;background:#F15A3C;margin-top:22px;border-radius:12px}
+.mock em{display:block;width:75%;height:21px;background:#D0D2CF;margin-top:24px;border-radius:3px}
+.mock small{display:block;width:90%;height:14px;background:#D0D2CF;margin-top:19px;border-radius:3px}
+.speech{position:absolute;z-index:2;right:10px;top:0;background:#151515;color:#fff;padding:20px 25px;border-radius:18px;font-size:36px;font-weight:700}
+.speech+.mock{top:57px}
+.mock-row{display:flex;gap:14px;margin-top:30px}
+.mock.mini{width:290px;height:345px;padding:22px;border-width:3px}
+.mock.mini b{height:115px}
+.mock.mini.off b{background:#23607B}
+.mock.mini.missing b{height:40px;background:#F15A3C}
+.document{background:#fff;border:3px solid #151515;border-radius:14px;min-height:418px;padding:30px 34px;font-size:43px}
+.doc-head{font-family:YaHei,sans-serif;font-size:35px;font-weight:700;background:#151515;color:#fff;padding:14px 18px;margin:-30px -34px 30px}
+.doc-rule,.tree{border-bottom:2px solid #D2D5D0;padding:14px 0}
+.stack-card strong{display:block;font-size:41px;font-weight:400;margin-top:7px}
+.task{font-size:44px;padding:23px 26px;margin-bottom:12px}
+.task span{float:right;color:#D94125}
+.task.checked span{color:#23966C}
+.rounds{font-size:37px;font-weight:700;margin:26px 0;color:#D94125}
+.boundary-q{font-size:57px;font-weight:700;border-bottom:5px solid #151515;padding:25px 0;margin-bottom:22px}
+.boundary-yes,.boundary-no{font-size:48px;padding:26px;margin:12px 0;background:#FDE7DF;border:2px solid #D94125}
+.boundary-no{background:#fff;border-color:#151515}
+.terminal{height:425px;background:#151515;color:#E6E8E5;border-radius:14px;padding:35px;font-family:YaHei,sans-serif;font-size:42px;line-height:1.8}
+.terminal-warning{color:#FF8B72;font-weight:700;margin-top:20px}
+.takeaway{font-size:48px;margin-bottom:17px;background:#151515;color:#fff}
+.takeaway:nth-child(2){background:#F15A3C;border-color:#F15A3C}
+.final-answer{font-size:340px;color:#D94125;font-weight:700;line-height:1}
+.final-line{font-size:45px;margin-top:30px;border-top:5px solid #151515;padding-top:35px}
+</style>
+<div id="root" data-composition-id="review" data-width="1080" data-height="1920"><div id="shot16" class="clip shot" data-start="0.00" data-duration="11.35" data-track-index="1" data-beat="loop" ><div class="topline">踩坑 · 示意画面</div><div class="headline">还有问题吗？</div><div class="accentline">还有。</div><div class="visual" data-layout-allow-overflow><div class="chat user">还有问题吗？</div><div class="chat ai">有。</div><div class="rounds">第 1 轮　→　第 12 轮　→　第 27 轮…</div><div class="chat ai">还有。</div></div><div class="subline">几十轮审查循环</div></div>
+<div id="shot17" class="clip shot" data-start="11.35" data-duration="11.33" data-track-index="1" data-beat="boundary" ><div class="topline">审查边界 · 示意画面</div><div class="headline">能改 ≠ 必须改</div><div class="accentline">看上线风险</div><div class="visual" data-layout-allow-overflow><div class="boundary-q">会影响这次上线吗？</div><div class="boundary-yes">会 → 现在修</div><div class="boundary-no">不会 → 记录下来</div></div><div class="subline">别等它宣布完美</div></div>
+<div id="shot18" class="clip shot" data-start="22.68" data-duration="9.73" data-track-index="1" data-beat="severity" ><div class="topline">审查边界 · 示意画面</div><div class="headline">必须修 / 可记录</div><div class="accentline">明确门槛</div><div class="visual" data-layout-allow-overflow><div class="stack-card must">必须修 <strong>功能 / 数据 / 性能</strong></div><div class="stack-card">可记录 <strong>偏好 / 低收益优化</strong></div></div><div class="subline">功能、数据安全、关键性能</div></div>
+<div id="shot19" class="clip shot" data-start="32.41" data-duration="11.66" data-track-index="1" data-beat="testing" ><div class="topline">测试 · 示意画面</div><div class="headline">完成了 ≠ 验收了</div><div class="accentline">人要亲自测</div><div class="visual" data-layout-allow-overflow><div class="task checked">AI：数据、接口、并发 <span>✓</span></div><div class="task active">人：真实流程 <span>✓</span></div><div class="task active">人：关键结果 <span>✓</span></div></div><div class="subline">AI 辅助数据、接口、并发</div></div></div>
+<script>
+const tl = gsap.timeline({ paused: true });
+document.querySelectorAll('[data-composition-id="review"] .shot').forEach((shot) => {
+  const at = Number(shot.dataset.start);
+  const length = Number(shot.dataset.duration);
+  const accent = shot.querySelector('.accentline');
+  const art = shot.querySelector('.visual');
+  if (shot.id === 'shot01') return;
+  tl.fromTo(art, {y:35}, {y:0, duration:.4, ease:'power3.out'}, at+.04);
+  tl.fromTo(accent, {opacity:0, x:50}, {opacity:1, x:0, duration:.34, ease:'power3.out'}, at+1.1);
+  const parts = [...art.querySelectorAll('.flow-step,.debate-card,.week,.chat,.doc-rule,.tree,.stack-card,.task,.boundary-q,.boundary-yes,.boundary-no,.takeaway,.mock b,.mock em,.mock small,.terminal div,.rounds,.final-line,.micro')];
+  const limit = Math.min(4, parts.length);
+  for (let i = 1; i < limit; i++) {
+    const cue = at + 2.2 + (i - 1) * Math.max(.9, (length - 5) / Math.max(1, limit - 1));
+    tl.fromTo(parts[i], {opacity:0, y:22}, {opacity:1, y:0, duration:.26, ease:'power3.out'}, cue);
+  }
+  tl.fromTo(shot.querySelector('.subline'), {opacity:0}, {opacity:1, duration:.25}, at + length - 3.1);
+});
+window.__timelines["review"] = tl;
+</script>
+</template>

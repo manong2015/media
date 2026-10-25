@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>章节卡</title>
+  </head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="../styles/explainer.css" />
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          font-family: var(--font-sans);
+          color: var(--ink);
+        }
+        #cc-wrap {
+          position: absolute;
+          left: var(--safe-x);
+          right: var(--safe-x);
+          top: 220px;
+          height: 1080px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 40px;
+        }
+        #cc-index {
+          font-family: var(--font-mono);
+          font-size: 44px;
+          font-weight: 700;
+          color: var(--muted);
+        }
+        #cc-title {
+          font-size: 136px;
+          font-weight: 900;
+          line-height: 1.2;
+          text-align: center;
+        }
+        #cc-bar {
+          width: 120px;
+          height: 10px;
+          border-radius: 5px;
+          background: var(--accent);
+        }
+      </style>
+
+      <div data-hf-id="hf-2yw9" id="root" data-composition-id="chapter-card" data-width="1080" data-height="1920">
+        <div data-hf-id="hf-mgf0" id="cc-wrap">
+          <div data-hf-id="hf-bblr" id="cc-index">01</div>
+          <div data-hf-id="hf-jvjz" id="cc-title">MCP 是什么</div>
+          <div data-hf-id="hf-0f8v" id="cc-bar"></div>
+        </div>
+      </div>
+
+      <script>
+        const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#cc-title", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 0.1);
+        tl.fromTo("#cc-index", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.2);
+        tl.fromTo("#cc-bar", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power2.out" }, 0.45);
+        window.__timelines["chapter-card"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

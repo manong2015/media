@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>录屏窗口 + 下划线标注</title>
+  </head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="../styles/explainer.css" />
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          font-family: var(--font-sans);
+          color: var(--ink);
+        }
+        #sw-wrap {
+          position: absolute;
+          left: var(--safe-x);
+          width: 936px;
+          top: 300px;
+          height: 900px;
+        }
+        #sw-intro {
+          width: 100%;
+          height: 100%;
+        }
+        /* punch-in 只放大窗口内容，窗口框不动 */
+        #sw-zoom {
+          flex: 1;
+          transform-origin: 15% 55%;
+        }
+        #sw-window {
+          width: 100%;
+          height: 100%;
+          background: var(--surface);
+          border-radius: 28px;
+          box-shadow: 0 20px 60px rgba(11, 27, 63, 0.18);
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+        }
+        #sw-bar {
+          height: 72px;
+          background: #f3f5f8;
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          padding: 0 28px;
+          flex: none;
+          position: relative;
+          z-index: 1;
+        }
+        .sw-dot {
+          width: 20px;
+          height: 20px;
+          border-radius: 10px;
+        }
+        /* 实际使用时把这块替换成录屏 <video> */
+        #sw-body {
+          height: 100%;
+          padding: 48px;
+          display: flex;
+          flex-direction: column;
+          gap: 28px;
+        }
+        .sw-mock {
+          height: 28px;
+          border-radius: 14px;
+          background: #e6eaf0;
+        }
+        #sw-prompt {
+          margin-top: 24px;
+          border: 3px solid #dfe5ee;
+          border-radius: 24px;
+          padding: 36px;
+          font-size: 46px;
+          font-weight: 700;
+          line-height: 1.5;
+        }
+        .sw-hl {
+          position: relative;
+          display: inline-block;
+        }
+        .sw-hl-line {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: -4px;
+          height: 6px;
+          border-radius: 3px;
+          background: var(--accent);
+          transform-origin: 0% 50%;
+        }
+      </style>
+
+      <div data-hf-id="hf-saci" id="root" data-composition-id="screen-window" data-width="1080" data-height="1920">
+        <div data-hf-id="hf-s0nk" id="sw-wrap">
+          <div data-hf-id="hf-hlaq" id="sw-intro">
+            <div data-hf-id="hf-ejfs" id="sw-window">
+              <div data-hf-id="hf-c983" id="sw-bar">
+                <div data-hf-id="hf-07lw" class="sw-dot" style="background: #ff5f57"></div>
+                <div data-hf-id="hf-okr4" class="sw-dot" style="background: #febc2e"></div>
+                <div data-hf-id="hf-jdky" class="sw-dot" style="background: #28c840"></div>
+              </div>
+              <div data-hf-id="hf-dzwd" id="sw-zoom">
+              <div data-hf-id="hf-i4co" id="sw-body">
+                <div data-hf-id="hf-z1ya" class="sw-mock" style="width: 60%"></div>
+                <div data-hf-id="hf-88u7" class="sw-mock" style="width: 85%"></div>
+                <div data-hf-id="hf-ph88" class="sw-mock" style="width: 40%"></div>
+                <div data-hf-id="hf-tp5c" id="sw-prompt">请读取桌面上的<span data-hf-id="hf-onvd" class="sw-hl">本周会议纪要<span data-hf-id="hf-7rxp" id="sw-hl1" class="sw-hl-line"></span></span>，整理成<span data-hf-id="hf-xqel" class="sw-hl">三条待办<span data-hf-id="hf-bq1q" id="sw-hl2" class="sw-hl-line"></span></span></div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-hf-id="hf-nnc6" class="ex-sub"><div data-hf-id="hf-t2u5" id="sw-sub" class="ex-sub-box">一句话，AI 自己动手</div></div>
+      </div>
+
+      <script>
+        const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#sw-intro", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.1);
+        tl.fromTo("#sw-sub", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.3);
+        tl.fromTo("#sw-hl1", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power2.out" }, 0.7);
+        tl.fromTo("#sw-hl2", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power2.out" }, 1.0);
+        tl.fromTo("#sw-zoom", { scale: 1 }, { scale: 1.25, duration: 0.8, ease: "power2.inOut" }, 1.5);
+        window.__timelines["screen-window"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

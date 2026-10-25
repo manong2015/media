@@ -1,0 +1,12 @@
+{
+  "duration": 5,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#hook-title", "bySec": 0.55 },
+    { "kind": "before", "a": "#hook-title", "b": "#tag-core" },
+    { "kind": "before", "a": "#tag-core", "b": "#root-node" },
+    { "kind": "staysInFrame", "selector": "#tag-core" },
+    { "kind": "staysInFrame", "selector": "#head-node" },
+    { "kind": "staysInFrame", "selector": "#body-node" },
+    { "kind": "keepsMoving", "withinSelector": "#main-clip", "maxStaticSec": 1.1 }
+  ]
+}
